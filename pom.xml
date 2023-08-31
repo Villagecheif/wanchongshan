@@ -11,6 +11,8 @@
     </parent>
     <modules>
         <module>order</module>
+        <module>order-service</module>
+        <module>stock</module>
         <module>stock</module>
     </modules>
     <groupId>com.village</groupId>
