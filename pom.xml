@@ -11,9 +11,10 @@
     </parent>
     <modules>
         <module>order</module>
+        <module>stock</module>
         <module>order-service</module>
-        <module>stock</module>
-        <module>stock</module>
+        <module>credit-service</module>
+        <module>wms-service</module>
     </modules>
     <groupId>com.village</groupId>
     <artifactId>wanchongshan</artifactId>
