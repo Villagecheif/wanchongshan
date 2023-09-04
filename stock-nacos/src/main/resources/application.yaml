@@ -1,0 +1,15 @@
+server:
+  port: 8081
+#  应用名称：nacos会将该名称当做是注册表中的服务的名称
+spring:
+  application:
+    name: stock-nacos
+
+#   可以不配，一般是默认值
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        password: nacos
+        username: nacos
+        namespace: public

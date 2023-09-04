@@ -2,20 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!--springboot版本管理器-->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.15</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-    <modules>
-        <module>order</module>
-        <module>stock</module>
-        <module>order-service</module>
-        <module>credit-service</module>
-        <module>wms-service</module>
-    </modules>
+
     <groupId>com.village</groupId>
     <artifactId>wanchongshan</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -23,9 +10,57 @@
     <name>wanchongshan</name>
     <description>wan chong shan spring cloud alibaba</description>
     <packaging>pom</packaging>
+
+    <!--springboot版本管理器，以后公司中开发就可以使用parent去继承自定义的父maven项目-->
+    <!--    <parent>-->
+    <!--        <groupId>org.springframework.boot</groupId>-->
+    <!--        <artifactId>spring-boot-starter-parent</artifactId>-->
+    <!--        <version>2.7.15</version>-->
+    <!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+    <!--    </parent>-->
+    <modules>
+        <module>order</module>
+        <module>stock</module>
+        <module>stock-nacos</module>
+        <module>order-nacos</module>
+    </modules>
+
     <properties>
         <java.version>1.8</java.version>
+        <spring.cloud.alibaba.version>2.2.5.RELEASE</spring.cloud.alibaba.version>
+        <spring.boot.version>2.3.2.RELEASE</spring.boot.version>
+        <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--spring cloud alibaba 的版本管理，通过dependency的方式完成继承-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring.cloud.alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--spring cloud  的版本管理，通过dependency的方式完成继承-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--  springboot的父pom版本管理也可以在dependencyManagement中进行管理，但是需要写type和scope标签         -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!--springboot 基本场景启动器-->
@@ -45,7 +80,6 @@
             </exclusions>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>

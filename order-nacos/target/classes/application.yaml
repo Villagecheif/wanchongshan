@@ -1,0 +1,6 @@
+server:
+  port: 8080
+#  应用名称：nacos会将该名称当做是注册表中的服务的名称
+spring:
+  application:
+    name: order-nacos
