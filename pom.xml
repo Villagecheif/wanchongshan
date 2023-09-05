@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.village</groupId>
-    <artifactId>wanchongshan</artifactId>
+    <artifactId>wanchongshan-alibaba</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>wanchongshan</name>
+    <name>wanchongshan-alibaba</name>
     <description>wan chong shan spring cloud alibaba</description>
     <packaging>pom</packaging>
 
